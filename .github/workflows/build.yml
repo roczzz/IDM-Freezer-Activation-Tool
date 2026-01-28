@@ -24,15 +24,19 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Build EXE with PyInstaller
+      - name: Build EXE
         run: |
           pyinstaller --onefile --noconsole `
             --add-data "config.json;." `
             --add-data "zied.cmd;." `
             "IDM Manager v3.0.py"
 
+      - name: Move EXE to project root
+        run: |
+          move dist\*.exe .
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: IDM-Manager
-          path: dist/*
+          path: "*.exe"
