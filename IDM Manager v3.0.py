@@ -167,7 +167,7 @@ def check_network_connectivity():
     try:
         # Try to ping GitHub
         result = subprocess.run(
-            ["ping", "-n", "1", "github.com"],
+            ["ping", "-n", "1", "baidu.com"],
             capture_output=True,
             timeout=5
         )
